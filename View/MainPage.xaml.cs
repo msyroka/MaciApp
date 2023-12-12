@@ -1,4 +1,6 @@
-﻿namespace MaciApp;
+﻿using MaciApp.View;
+
+namespace MaciApp;
 
 public partial class MainPage : ContentPage
 {
@@ -8,6 +10,9 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
- 
+    private void OnClicked(object sender, EventArgs eventArgs)
+    {
+        Navigation.PushAsync(new Calculator());
+    }
     
 }
