@@ -21,7 +21,7 @@ public partial class Calculator : ContentPage
         BindingContext = new CalculatorPageViewModel();
     }
 
-    void OnClear(object sender, EventArgs eventArgs)
+    public void OnClear(object sender, EventArgs eventArgs)
     {
         firstNum = 0;
         secondNum = 0;

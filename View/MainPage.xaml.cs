@@ -1,4 +1,5 @@
 ﻿using MaciApp.View;
+using ListView = Microsoft.Maui.Controls.ListView;
 
 namespace MaciApp;
 
@@ -14,5 +15,9 @@ public partial class MainPage : ContentPage
     {
         Navigation.PushAsync(new Calculator());
     }
-    
+
+    private void OnClickedListView(object? sender, EventArgs e)
+    {
+        Navigation.PushAsync(new LearnigPageView());
+    }
 }

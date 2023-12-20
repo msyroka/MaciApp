@@ -3,7 +3,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModel="clr-namespace:MaciApp.ViewModel"
-             x:Class="MaciApp.View.Calculator" x:DataType="viewModel:CalculatorPageViewModel">
+             x:Class="MaciApp.View.Calculator" 
+             x:DataType="viewModel:CalculatorPageViewModel">
     <ContentPage.Content>
                 <Grid Padding="5,0"
               BackgroundColor="Gray"
@@ -43,9 +44,9 @@
                 Grid.ColumnSpan ="2" 
                 BackgroundColor="LightGray"
                 CornerRadius="0"
-                Clicked="OnClear"
                 FontSize="36"
-                Text="{Binding C}"
+                Text="{Binding CButton}"
+                Command="{Binding CClickedCommand}"
                 TextColor="DarkGrey">
             </Button>
             
