@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MaciApp.Service;
 using MaciApp.ViewModel;
 
 namespace MaciApp.View;
@@ -18,7 +19,7 @@ public partial class Calculator : ContentPage
     {
         InitializeComponent();
         OnClear(this, null);
-        BindingContext = new CalculatorPageViewModel();
+        BindingContext = new CalculatorPageViewModel(new CalculateServices());
     }
 
     public void OnClear(object sender, EventArgs eventArgs)
@@ -26,36 +27,28 @@ public partial class Calculator : ContentPage
         firstNum = 0;
         secondNum = 0;
         curretntState = 1;
-        this.result.Text = "0";
+        this.ResultLabel.Text = "0";
     }
-
-    void OnSquarRoot(object sender, EventArgs e)
-    {
-        if (firstNum==0)
-            return;
-        firstNum = firstNum * firstNum;
-        this.result.Text = firstNum.ToString();
-    }
-
+    
     void OnNumberSelection(object sender, EventArgs e)
     {
         Button button = (Button) sender;
         string btnPressed = button.Text;
 
-        if (this.result.Text == "0" || curretntState < 0)
+        if (this.ResultLabel.Text == "0" || curretntState < 0)
         {
-            this.result.Text = string.Empty;
+            this.ResultLabel.Text = string.Empty;
 
             if (curretntState < 0)
                 curretntState *= -1;
         }
 
-        this.result.Text += btnPressed;
+        this.ResultLabel.Text += btnPressed;
 
         double number;
-        if (double.TryParse(this.result.Text, out number))
+        if (double.TryParse(this.ResultLabel.Text, out number))
         {
-            this.result.Text = number.ToString();
+            this.ResultLabel.Text = number.ToString();
             if (curretntState == 1)
             {
                 firstNum = number;
@@ -77,13 +70,6 @@ public partial class Calculator : ContentPage
 
     void onCalculate(object sender, EventArgs e)
     {
-        if (curretntState == 2)
-        {
-            var result = Calculate.DoCalculation(firstNum, secondNum, operatorMath);
-
-            this.result.Text = result.ToString();
-            firstNum = result;
-            curretntState = -1;
-        }
+        if (curretntState == 2) ;
     }
 }

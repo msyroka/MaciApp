@@ -7,16 +7,11 @@ using MaciApp.ViewModel;
 
 namespace MaciApp.View;
 
-public partial class LearnigPageView : ContentPage
+public partial class BindableLayoutPage : ContentPage
 {
-    public LearnigPageView()
+    public BindableLayoutPage()
     {
         InitializeComponent();
-        BindingContext = new LearnigPageViewViewModel();
+        BindingContext = new BindableLayoutPageViewModel();
     }
-    
-    
-    
 }
-
-

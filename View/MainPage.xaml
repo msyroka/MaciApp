@@ -37,6 +37,13 @@
                 Clicked="OnClickedListView"
                 HorizontalOptions="Fill" />
             
+            <Button
+                x:Name="BindableLayoutBtn"
+                Text="Go to BindableLayoutBtn" 
+                Clicked="OnBindableLayoutBtn"
+                HorizontalOptions="Fill" />
+
+            
             
         </VerticalStackLayout>
     </ScrollView>

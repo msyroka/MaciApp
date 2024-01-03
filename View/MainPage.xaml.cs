@@ -1,4 +1,5 @@
 ﻿using MaciApp.View;
+using MaciApp.ViewModel;
 using ListView = Microsoft.Maui.Controls.ListView;
 
 namespace MaciApp;
@@ -20,4 +21,11 @@ public partial class MainPage : ContentPage
     {
         Navigation.PushAsync(new LearnigPageView());
     }
+    
+    private void OnBindableLayoutBtn(object? sender, EventArgs e)
+    {
+        Navigation.PushAsync(new BindableLayoutPage());
+    }
+    
 }
+

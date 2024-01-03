@@ -37,7 +37,9 @@
                                    Text="{Binding Location}"
                                    FontAttributes="Italic"
                                    VerticalOptions="End" />
-                         <TapGestureRecognizer Command="{Binding BindingContext.ClickedWorker, Source={x:Reference LearnigPageRoot}}" CommandParameter ="{Binding .}"></TapGestureRecognizer>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.ClickedWorker, Source={x:Reference LearnigPageRoot}}" CommandParameter ="{Binding .}"></TapGestureRecognizer>
+                            </Grid.GestureRecognizers>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

@@ -16,7 +16,7 @@ namespace MaciApp.ViewModel
             set => SetProperty(ref workers, value);
         }
 
-        public LearnigPageViewViewModel(ICommand clickedWorker)
+        public LearnigPageViewViewModel()
         {
            
             ClickedWorker = new Command<Worker>(WorkerClicked);
