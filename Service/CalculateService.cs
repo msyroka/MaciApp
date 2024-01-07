@@ -2,14 +2,14 @@ namespace MaciApp.Service;
 
 public class CalculateServices : ICalculateService
 {
-    
-    public int DoCalculation(OperationMath operatorMath, int val1, int val2 = 0 )
+
+    public int DoCalculation(OperationMath operatorMath, int val1, int val2 = 0)
     {
         int result = 0;
 
         switch (operatorMath)
         {
-            case OperationMath.devide:
+            case OperationMath.divide:
                 result = val1 / val2;
                 break;
             case OperationMath.sub:
@@ -22,7 +22,7 @@ public class CalculateServices : ICalculateService
                 result = val1 + val2;
                 break;
             case OperationMath.pow:
-                result = (int)Math.Pow(val1, 2);
+                result = (int) Math.Pow(val1, 2);
                 break;
 
             default:
@@ -32,4 +32,5 @@ public class CalculateServices : ICalculateService
         return result;
 
     }
+
 }

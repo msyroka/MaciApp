@@ -24,12 +24,7 @@ public class BindableLayoutPageViewModel : INotifyPropertyChanged
             TestList.Add("test" + i.ToString());
         }
     }
-
-
-
-
-
-
+    
 
     protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {

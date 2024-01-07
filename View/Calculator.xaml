@@ -143,7 +143,7 @@
                 Grid.Column="1"
                 BackgroundColor="White"
                 Command="{Binding NumberSelectionCommand}"
-                Clicked="OnNumberSelection"
+              
                 CornerRadius="1"
                 FontSize="36"
                 Text="2"
@@ -154,7 +154,7 @@
                 Grid.Column="2"
                 BackgroundColor="White"
                 Command="{Binding NumberSelectionCommand}"
-                Clicked="OnNumberSelection"
+            
                 CornerRadius="1"
                 FontSize="36"
                 Text="1"
@@ -166,7 +166,7 @@
                 Grid.ColumnSpan="3"
                 BackgroundColor="White"
                 Command="{Binding NumberSelectionCommand}"
-                Clicked="OnNumberSelection"
+      
                 CornerRadius="1"
                 FontSize="36"
                 Text="0"
@@ -177,7 +177,7 @@
                 Grid.Column="3"
                 BackgroundColor="BlueViolet"
                 Command="{Binding SubtractCommand}"
-                Clicked="onOperatorSelection"
+        
                 CornerRadius="1"
                 FontSize="36"
                 Text="-"
@@ -187,8 +187,8 @@
                 Grid.Row="2"
                 Grid.Column="3"
                 BackgroundColor="BlueViolet"
-
-                Clicked="onOperatorSelection"
+                Command="{Binding AddCommand}"
+          
                 CornerRadius="1"
                 FontSize="36"
                 Text="+"
@@ -198,8 +198,8 @@
                 Grid.Row="3"
                 Grid.Column="3"
                 BackgroundColor="BlueViolet"
-               
-                Clicked="onOperatorSelection"
+                Command="{Binding MultiplyCommand}"
+            
                 CornerRadius="1"
                 FontSize="36"
                 Text="*"
@@ -209,8 +209,8 @@
                 Grid.Row="4"
                 Grid.Column="3"
                 BackgroundColor="BlueViolet"
+                Command="{Binding DivideCommand}"
             
-                Clicked="onOperatorSelection"
                 CornerRadius="1"
                 FontSize="36"
                 Text="/"
@@ -221,7 +221,7 @@
                 Grid.Column="3"
                 BackgroundColor="BlueViolet"
                 Command="{Binding EqualsClickedCommand}"
-                Clicked="onCalculate"
+           
                 CornerRadius="1"
                 FontSize="36"
                 Text="="

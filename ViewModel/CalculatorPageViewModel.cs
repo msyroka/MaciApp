@@ -9,6 +9,8 @@ public class CalculatorPageViewModel : INotifyPropertyChanged
 {
     private string _cButton = "C";
     private readonly ICalculateService _calculateService;
+    private int _storedValue;
+    private OperationMath _operationMath;
 
     private int _resultText = 0;
 
@@ -34,20 +36,43 @@ public class CalculatorPageViewModel : INotifyPropertyChanged
     public ICommand SquareCommand { get; }
     public ICommand NumberSelectionCommand { get; }
     public ICommand SubtractCommand { get; }
+    public ICommand AddCommand { get; }
+    public Command MultiplyCommand { get; }
+    public Command DivideCommand { get; }
+    
+
     public ICommand EqualsClickedCommand { get; }
     public CalculatorPageViewModel(ICalculateService calculateService)
     {
         _calculateService = calculateService;
         CClickedCommand = new Command(CClicked);
         SquareCommand = new Command(Square);
-        SubtractCommand = new Command(Subtract); 
+        SubtractCommand = new Command(Subtract);
+        AddCommand = new Command(Add);
+        MultiplyCommand = new Command(Multiply);
+        DivideCommand = new Command(Divide);
         NumberSelectionCommand = new Command<string>(NumberSelection);
         EqualsClickedCommand = new Command(EqualsClicked);
+        
     }
+
+ 
+
+
     private void NumberSelection(string number)
     {
-        if(int.TryParse(number, out var tstVal))
-            ResultText = tstVal;
+        if(int.TryParse(number, out var parsedNumberValue))
+            if (ResultText != 0)
+            {
+                var newResoult = ResultText.ToString() + number;
+                ResultText = int.Parse(newResoult);
+            }
+            else
+            {
+                ResultText = parsedNumberValue;
+            }
+
+   
     }
     private void Square()
     {
@@ -56,16 +81,41 @@ public class CalculatorPageViewModel : INotifyPropertyChanged
     
     private void Subtract()
     {
-        ResultText = _calculateService.DoCalculation(OperationMath.sub, ResultText);
+        _storedValue = ResultText;
+        ResultText = 0;
+        _operationMath = OperationMath.sub;
+        
     }
+    
+    private void Add()
+    {
+        _storedValue = ResultText;
+        ResultText = 0;
+        _operationMath = OperationMath.add;
+    }
+    
+    private void Multiply()
+    {
+        _storedValue = ResultText;
+        ResultText = 0;
+        _operationMath = OperationMath.multiply;
+    }
+    
+    private void Divide(object obj)
+    {
+        _storedValue = ResultText;
+        ResultText = 0;
+        _operationMath = OperationMath.divide;}
+    
     private void CClicked()
      {
          ResultText = 0;
+         _storedValue = 0;
      }
     
-    private void EqualsClicked(object obj)
+    private void EqualsClicked()
     {
-        
+        ResultText = _calculateService.DoCalculation(_operationMath, _storedValue,ResultText);
     }
     
     public void OnPropertyChanged([CallerMemberName] string name = "") =>

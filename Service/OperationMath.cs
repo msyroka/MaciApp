@@ -2,7 +2,7 @@ namespace MaciApp.Service;
 
 public enum OperationMath
 {
-    devide,
+    divide,
     sub,
     add,
     multiply,

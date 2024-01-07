@@ -18,10 +18,10 @@ public partial class Calculator : ContentPage
     public Calculator()
     {
         InitializeComponent();
-        OnClear(this, null);
+      //  OnClear(this, null);
         BindingContext = new CalculatorPageViewModel(new CalculateServices());
     }
-
+    /*
     public void OnClear(object sender, EventArgs eventArgs)
     {
         firstNum = 0;
@@ -71,5 +71,5 @@ public partial class Calculator : ContentPage
     void onCalculate(object sender, EventArgs e)
     {
         if (curretntState == 2) ;
-    }
+    } */
 }
